@@ -10,16 +10,16 @@ export const Comment = ({
   const check = likeNum > 0;
   const checkreplies = replies.length > 0;
 
-  {
-    replies.map((com) => (
-      <Reply
-        userImagePath={com.userImagePath}
-        username={com.username}
-        replyText={com.replyText}
-        likeNum={com.likeNum}
-      />
-    ));
-  }
+  // {
+  //   replies.map((com) => (
+  //     <Reply
+  //       userImagePath={com.userImagePath}
+  //       username={com.username}
+  //       replyText={com.replyText}
+  //       likeNum={com.likeNum}
+  //     />
+  //   ));
+  // }
 
   return (
     <div className="d-flex gap-2 my-2">
@@ -44,9 +44,10 @@ export const Comment = ({
           {check && <span style={{ color: "#B0B3B8" }}>{likeNum}</span>}
         </div>
       </div>
-    </div> ,
-    // {replies.map((com) => (
+    </div>
+    // {checkreplies && replies.map((com) => (
     //     <Reply
+    //     key={com.username}
     //       userImagePath={com.userImagePath}
     //       username={com.username}
     //       replyText={com.replyText}
