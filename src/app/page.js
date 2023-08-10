@@ -1,5 +1,9 @@
 "use client";
 
+import { PostOwner } from "@/components/PostOwner";
+import { comments } from "@/libs/comments";
+import { Comment } from "@/components/Comment";
+
 export default function HomePage() {
   return (
     <div
@@ -12,17 +16,17 @@ export default function HomePage() {
         className="mx-auto p-3 rounded rounded-3 shadow-sm"
       >
         {/* Post Owner Example*/}
-        <div className="vstack gap-3">
+        {/* <div className="vstack gap-3">
           <div className="d-flex align-items-center gap-3">
             <img
-              src="/profileImages/handsome.jpg"
+              src="/profileImages/img.jpg"
               width="48"
               height="48"
               className="rounded-circle"
               style={{ objectFit: "cover" }}
             />
             <span className="fw-semibold fs-5 text-white">
-              Chayanin Suatap 650610560
+              Chanuntorn Chiangpuan 650610754
             </span>
           </div>
 
@@ -35,10 +39,14 @@ export default function HomePage() {
             <span style={{ color: "#B0B3B8" }}>100 คน</span>
           </div>
           <hr className="m-0 border" />
-        </div>
+        </div> */}
+        <PostOwner
+          userImagePath={"/profileImages/img.jpg"}
+          username="Chanuntorn Chiangpuan"
+        />
 
         {/* Comment Example */}
-        <div className="d-flex gap-2 my-2">
+        {/* <div className="d-flex gap-2 my-2">
           <img
             src="/profileImages/lisa.jpg"
             width="48"
@@ -60,10 +68,19 @@ export default function HomePage() {
               <span style={{ color: "#B0B3B8" }}>999 คน</span>
             </div>
           </div>
-        </div>
+        </div> */}
+        {comments.map((com) => (
+          <Comment
+            userImagePath={com.userImagePath}
+            username={com.username}
+            commentText={com.commentText}
+            likeNum={com.likeNum}
+            replies={com.replies}
+          />
+        ))}
 
         {/* Reply Example */}
-        <div className="d-flex gap-2 my-2 ps-5">
+        {/* <div className="d-flex gap-2 my-2 ps-5">
           <img
             src="/profileImages/puppy.jpg"
             width="48"
@@ -85,7 +102,7 @@ export default function HomePage() {
               <span style={{ color: "#B0B3B8" }}>2 คน</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* map-loop render Comment component here */}
       </div>
