@@ -71,6 +71,7 @@ export default function HomePage() {
         </div> */}
         {comments.map((com) => (
           <Comment
+            key={com.replies}
             userImagePath={com.userImagePath}
             username={com.username}
             commentText={com.commentText}
